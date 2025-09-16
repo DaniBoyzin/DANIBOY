@@ -44,8 +44,8 @@ footer p {
     padding: 0.5rem;
 }
 .cartao_conteudo_resposta p{
-    color: rgb(175, 164, 139);
+    color: rgb(84, 87, 61);
 }
 .cartao:first-child .cartao_conteudo_resposta p{
-    color: rgb(165, 156, 131);
+    color: rgb(88, 92, 67);
 }
