@@ -6,7 +6,7 @@
 /* fonte que você importou no HTML */
 body {
   font-family: 'Libre Baskerville', serif;
-  background: linear-gradient(180deg, #0b0b0b 0%, #1b0000 100%);
+  background: linear-gradient(180deg, #0b0b0b 0%, #015418 100%);
   color: #fff;
   min-height: 100vh;
   display: flex;
