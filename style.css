@@ -1,96 +1,134 @@
+/* style.css */
+
+/* reset simples */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* fonte que você importou no HTML */
 body {
-background: url('img/bg-desktop.webp');
-font-family: "Oswald", sans-serif;
-color: rgb(255, 255, 255);
+  font-family: 'Libre Baskerville', serif;
+  background: linear-gradient(180deg, #0b0b0b 0%, #1b0000 100%);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-footer {
-background-color: rgb(20, 0, 240);
-color: rgb(255, 3, 3);
-position: fixed;
-bottom: 0;
-width: 100%;
-font-size: 1vw;
-}
-
-footer p {
-text-align: center;
-font: 0.6rem;
-margin-top: 0.5rem;
-}
-
+/* container dos cartões */
 #container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-padding: 4rem;
-gap: 3rem;
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
 }
 
-.cartao {
-margin: 1rem 1rem;
-background-color: aqua;
-height: 20rem;
-flex-grow: 1;
-flex-basis: calc(33% - 6rem);
+/* estilo do cartão (seleciona artigos cujo atributo class começa com "cart") */
+article[class^="cart"] {
+  background: linear-gradient(180deg, #0f0000 0%, #100 100%); /* preto profundo com leve vermelho */
+  border: 3px solid #b30000; /* borda vermelha forte */
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor: default;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 150px;
 }
 
-.cartao_conteudo {
-text-align: center;
-background-color: var(--card-front-color);
-height: 100%;
-transform-style: preserve-3d;
-transition: transform 300ms ease-in-out;
+/* leve elevação ao passar o mouse (efeito visual) */
+article[class^="cart"]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(179,0,0,0.25);
 }
 
-.cartao_conteudo h3 {
-color: var(--card-front-color);
-border: 1px solid var(--text-color);
-text-align: left;
-padding: 0.5rem;
-position: absolute;
-margin: 0.6rem;
-border-radius: 0.6rem;
-font-size: 2vw;
-backface-visibility: hidden;
-background-color: aliceblue;
+/* conteúdo interno (você tem .cartão_conteudo no HTML) */
+article[class^="cart"] > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
 }
 
-:root {
---text-color: #ffffff;
---card-front-color: #2500f8;
---card-back-color: #00F4BF;
+/* título do cartão */
+article[class^="cart"] h3 {
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg,#b30000,#7a0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* usa o gradiente como texto */
+  font-weight: 700;
 }
 
-.cartao_conteudo_pergunta p {
-color: var(--text-color);
-font-weight: 700;
-
+/* caixa da pergunta */
+article[class^="cart"] .cartão_conteudo_pergunta,
+article[class^="cart"] .cartao_conteudo_pergunta,
+article[class^="cart"] > div > div:first-of-type {
+  /* usamos o seletor estrutural como fallback (se as classes tiverem caracteres especiais) */
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(179,0,0,0.06);
+  color: #fff;
+  font-size: 0.98rem;
+  line-height: 1.3;
 }
 
-.cartao_conteudo_resposta p {
-color: var(--card-back-color);
-font-weight: 500;
+/* estilo da resposta — por padrão escondida */
+article[class^="cart"] > div > div:last-of-type {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #ffdede;
+  font-weight: 600;
+  font-size: 0.98rem;
 
+  /* efeito de esconder/mostrar suave */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition: max-height .35s ease, opacity .28s ease, transform .28s ease, padding .28s ease;
 }
 
-.cartao:hover .cartao_conteudo {
-transform: rotateY (180deg);
+/* ao passar o mouse sobre o cartão, mostrar a resposta */
+article[class^="cart"]:hover > div > div:last-of-type {
+  max-height: 240px; /* suficiente para a maioria das respostas */
+  opacity: 1;
+  transform: translateY(0);
+  padding: 10px 12px;
 }
 
-.cartao_conteudo_pergunta, .cartao_conteudo_resposta {
-backface-visibility: hidden;
-position: absolute;
-height: 100%;
-width: 100%;
+/* texto centralizado (reforço) */
+article[class^="cart"] p {
+  margin: 0;
+  text-align: center;
 }
 
-.cartao_conteudo_resposta {
-transform: rotateY (180deg);
+/* rodapé do layout (seu footer existente) */
+footer {
+  margin-top: 28px;
+  text-align: center;
+  width: 100%;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
 }
 
-.cartao_conteudo p {
-margin: 1rem;
-padding: 2rem;
-margin-top: 4rem;
+/* responsividade para telas pequenas */
+@media (max-width: 480px) {
+  article[class^="cart"] {
+    padding: 14px;
+    min-height: 130px;
+  }
+  article[class^="cart"] h3 { font-size: 1rem; }
+  article[class^="cart"] p { font-size: 0.95rem; }
 }
