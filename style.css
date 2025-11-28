@@ -28,7 +28,7 @@ body {
 /* estilo do cartão (seleciona artigos cujo atributo class começa com "cart") */
 article[class^="cart"] {
   background: linear-gradient(180deg, #0f0000 0%, #100 100%); /* preto profundo com leve vermelho */
-  border: 3px solid #b30000; /* borda vermelha forte */
+  border: 3px solid hsla(26, 96%, 10%, 0.922); /* borda vermelha forte */
   border-radius: 12px;
   padding: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.7);
