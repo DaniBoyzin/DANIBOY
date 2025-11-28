@@ -4,27 +4,27 @@ criaCartao(
     resposta,
 )
 criaCartao(
-    'Dead By Daylight - Pergunta 1:',
+    'Terraria - Pergunta 1:',
     'Qual é o primeiro boss do jogo?',
-    'O porteiro'
+    'O Rei slime'
 )
 criaCartao(
     'Pergunta 2:',
-    'O que é o protagonista de Dead cells ?',
-    'Um Homúnculo.',
+    'Quem o Guia é de verdade?',
+    'O parede de carne',
 )
 criaCartao(
     'Pergunta 3:',
     'Qual a dificuldade máxima do jogo?',
-    '5 células',
+    'Mestre',
 )
 criaCartao(
     'Pergunta 4:',
-    'Qual o boss final verdadeiro?',
-    'É seg',
+    'Qual o boss final?',
+    'O Moonlord',
 )
 criaCartao(
     'Pergunta 5:',
-    'Quem era o rei?',
-    'O próprio protagonista',
+    'Qual é a arma mais forte do jogo?',
+    'A Zenith',
 )
