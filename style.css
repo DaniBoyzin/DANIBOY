@@ -44,7 +44,7 @@ article[class^="cart"] {
 /* leve elevação ao passar o mouse (efeito visual) */
 article[class^="cart"]:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(179,0,0,0.25);
+  box-shadow: 0 20px 40px rgba(2, 174, 2, 0.604);
 }
 
 /* conteúdo interno (você tem .cartão_conteudo no HTML) */
